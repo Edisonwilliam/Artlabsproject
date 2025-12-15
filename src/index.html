@@ -1,0 +1,538 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <title>MyArteLab</title>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'gasoek': ['"Gasoek One"', 'cursive'],
+            'inter': ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+    
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    }
+  </script>
+</head>
+
+<body class="font-inter">
+  <!-- Navigation -->
+  <nav class="flex items-center justify-between px-6 py-4 bg-white">
+    <div class="flex items-center gap-3">
+      <img src="logo 1.svg" alt="Artlabs Logo">
+    </div>
+
+
+    <ul class="hidden md:flex items-center space-x-10 text-sm text-gray-900 hover:text-black font-bold">
+      <li class=" hover:text-black  transition cursor-pointer">Home</li>
+      <li class=" hover:text-black  transition cursor-pointer">About us</li>
+      <li class=" hover:text-black  transition cursor-pointer">Services</li>
+      <li class=" hover:text-black  transition cursor-pointer">How it works</li>
+    </ul>
+    
+    <div class="flex items-center gap-4">
+      <button class="p-2 hover:bg-gray-100 rounded-lg">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+        </svg>
+      </button>
+      <button class="p-2 hover:bg-gray-100 rounded-lg" onclick="toggleMenu()">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden absolute right-6 top-16 bg-white border rounded-lg shadow-lg w-48 z-50">
+    <div class="py-2">
+      <a href="#home" class="block px-4 py-3 font-bold text-black hover:bg-gray-50">Home</a>
+      <a href="#about" class="block px-4 py-3 text-gray-500 hover:bg-gray-50">About us</a>
+      <a href="#services" class="block px-4 py-3 text-gray-500 hover:bg-gray-50">Services</a>
+      <a href="#how" class="block px-4 py-3 text-gray-500 hover:bg-gray-50 border-b">How it works</a>
+      <div class="px-4 py-4">
+        <button class="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition font-semibold">
+          Explore
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <main class="px-6 py-12 space-y-6 md:flex md:justify-between md:items-center"> 
+    <div class="space-y-4">
+      <h1 class="font-gasoek font-bold text-4xl md:text-5xl">MyArteLab</h1>
+      <p class="font-bold">Built for African Creators.</p>
+      <p class="font-bold">Trusted by Clients Globally.</p>
+      <button class="bg-black text-white w-40 h-10 rounded-md font-bold hover:bg-gray-800 transition">
+        Become a Creator
+      </button>
+    </div>
+
+    <div class="bg-black text-white rounded-2xl p-6 max-w-md">
+      <div class="flex items-center gap-6">
+        <div class="flex -space-x-3">
+          <img class="w-6 h-6 rounded-full border-2 border-black" src="Ellipse 1.svg" alt="Creator">
+          <img class="w-6 h-6 rounded-full border-2 border-black" src="Ellipse 2.svg" alt="Creator">
+          <img class="w-6 h-6 rounded-full border-2 border-black" src="Ellipse 3.svg" alt="Creator">
+          <img class="w-6 h-6 rounded-full border-2 border-black" src="Ellipse 4.svg" alt="Creator">
+        </div>
+        <div class="flex flex-col">
+          <h2 class="font-semibold text-base">Trusted by creators in</h2>
+          <span class="text-sm text-gray-300">500+ verified creators across 15 African countries</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Hero Image -->
+  <div
+  class="w-screen bg-[url(image1.png)] bg-cover bg-center h-72 md:h-[500px] lg:h-[600px]">
+</div>
+
+
+
+  <!-- Feature Cards - Mobile -->
+  <div class="relative flex mt-10 px-4 max-w-3xl mx-auto md:hidden">
+    <div class="flex-1 h-96 bg-[#F4F4F4] rounded-l-2xl"></div>
+    <div class="flex-1 h-96 bg-black rounded-r-2xl"></div>
+
+    <div class="absolute top-28 right-6 bg-white rounded-xl shadow-md px-4 py-3 w-60 flex items-center gap-4">
+      <div><img src="Frame.png" alt="Secure Icon" class="mb-2"></div>
+      <div>
+        <p class="font-semibold text-sm">Secure</p>
+        <p class="text-xs text-gray-500">Your work and funds are always safe</p>
+      </div>
+    </div>
+
+    <div class="absolute bottom-28 right-10 bg-white rounded-xl shadow-md px-4 py-3 w-60 flex items-center gap-4">
+      <div><img src="frame2.png" alt="Fair Icon" class="mb-2"></div>
+      <div>
+        <p class="font-semibold text-sm">Fair</p>
+        <p class="text-xs text-gray-500">Set your own rates</p>
+      </div>
+    </div>
+
+    <div class="absolute top-10 left-6 bg-white rounded-xl shadow-md px-4 py-3 w-60 flex items-center gap-4">
+      <div><img src="frame3.png" alt="Fast Icon" class="mb-2"></div>
+      <div>
+        <p class="font-semibold text-sm">Fast</p>
+        <p class="text-xs text-gray-500">No more weeks of waiting</p>
+      </div>
+    </div>
+
+    <div class="absolute bottom-6 left-10 bg-white rounded-xl shadow-md px-4 py-3 w-64 flex items-center gap-4">
+      <div><img src="frame4.png" alt="Marketplace Icon" class="mb-2"></div>
+      <div>
+        <p class="font-semibold text-sm">Marketplace</p>
+        <p class="text-xs text-gray-500">Find the creative vision your project needs</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Value Proposition - Mobile -->
+  <article class="md:hidden px-6 py-12">
+    <h1 class="font-gasoek text-2xl text-center mb-10 font-bold">
+      Stable. Fast. Borderless payments. Powered by Solana.
+    </h1>
+
+    <div class="space-y-10">
+      <div>
+        <h2 class="text-2xl font-bold mb-2">Value proposition</h2>
+        <p class="text-gray-600">
+          A trusted marketplace for creative work across Africa.
+          MyArteLab solves the biggest challenges creatives and 
+          clients face today.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-bold mb-2">Creators</h2>
+        <p class="text-gray-600">
+          Showcase your work, get discovered, agree on your own rates,
+          and receive secure, instant payouts in stablecoin directly
+          to your wallet.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-bold mb-2">Clients</h2>
+        <p class="text-gray-600">
+          Hire verified creators, browse portfolios, review ratings,
+          book safely, and pay with full transparency through secure
+          escrow.
+        </p>
+        <button class="bg-[#9747FF] text-white w-44 h-10 rounded-md font-bold mt-4">
+          Become a Creator
+        </button>
+      </div>
+    </div>
+  </article>
+
+  <!-- Desktop Three Column Section -->
+  <div class="hidden md:flex min-h-screen bg-black text-white p-8 lg:p-16 items-center justify-center">
+    <div class="max-w-7xl w-full grid md:grid-cols-3 gap-8 items-center">
+      
+      <!-- Left - Feature cards -->
+      <div class="flex justify-center">
+        <div class="bg-white text-black rounded-2xl p-8 shadow-2xl w-full max-w-sm">
+          <div class="space-y-8">
+            <div class="flex items-start gap-4">
+              <div class="p-2 bg-gray-100 rounded-lg">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg mb-1">Secure</h3>
+                <p class="text-gray-600 text-sm">Your work and funds are always safe</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="p-2 bg-gray-100 rounded-lg">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg mb-1">Fast</h3>
+                <p class="text-gray-600 text-sm">No more weeks of waiting</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="p-2 bg-gray-100 rounded-lg">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg mb-1">Fair</h3>
+                <p class="text-gray-600 text-sm">Set your own rates</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="p-2 bg-gray-100 rounded-lg">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg mb-1">Marketplace</h3>
+                <p class="text-gray-600 text-sm">Find the creative vision your project needs</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Middle - Main heading -->
+      <div class="flex flex-col justify-center">
+        <h1 class="text-4xl lg:text-5xl font-bold leading-tight text-center">
+          Stable. Fast.<br/>
+          Borderless payments.<br/>
+          <span class="text-gray-400">Powered by Solana.</span>
+        </h1>
+      </div>
+
+      <!-- Right - Value proposition -->
+      <div class="space-y-6">
+        <div>
+          <h2 class="text-xl font-bold mb-2">Value proposition</h2>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            A trusted marketplace for creative work across Africa. MyArteLab solves the biggest challenges creatives and clients face today.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-bold mb-2">Creators</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Showcase your work, get discovered, agree on your own rates, and receive secure, instant payouts in stablecoin directly to your wallet.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-bold mb-2">Clients</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Access top creative diverse portfolios, review ratings, book safely, and pay with full transparency through secure escrow.
+          </p>
+        </div>
+
+        <button class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg transition-colors">
+          Become a creator
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ecosystem Section - Desktop -->
+  <div class="hidden md:block bg-white text-black py-16 px-8">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold mb-4">
+          Creating a trusted, transparent<br/>ecosystem
+        </h2>
+        <p class="text-gray-600 text-lg">
+          African visual creators can thrive and clients can<br/>
+          access top-tier talent with confidence.
+        </p>
+      </div>
+
+      <div class="relative">
+        <div class="absolute left-0 top-1/2 w-full border-t-2 border-dotted border-blue-500 z-0"></div>
+        
+        <div class="relative z-10 max-w-5xl mx-auto">
+          <div class="relative" style="height: 500px;">
+            <div class="absolute top-0 left-0 w-72 h-48 rounded-lg">
+              <img src="Rectangle 18.png" class="w-full h-full object-cover rounded-lg" alt="Image 1">
+            </div>
+            <div class="absolute top-0 right-0 w-72 h-48 rounded-lg">
+              <img src="Rectangle 20.png" class="w-full h-full object-cover rounded-lg" alt="Image 2">
+            </div>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-80 rounded-lg z-10">
+              <img src="Rectangle 17.png" class="w-full h-full object-cover rounded-lg" alt="Center Image">
+            </div>
+            <div class="absolute bottom-0 left-0 w-72 h-48 rounded-lg">
+              <img src="Rectangle 19.png" class="w-full h-full object-cover rounded-lg" alt="Image 3">
+            </div>
+            <div class="absolute bottom-0 right-0 w-72 h-48 rounded-lg">
+              <img src="Rectangle 21.png" class="w-full h-full object-cover rounded-lg" alt="Image 4">
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-center items-center gap-8 mt-12">
+         <img src="Arrow.png">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Why Section - Mobile -->
+  <main class="bg-[#9747FF] w-full py-12 px-6 flex flex-col items-center space-y-6 md:hidden">
+    <h1 class="font-gasoek text-2xl text-white text-center">
+      Why Africa. Why now. Why MyArteLab?
+    </h1>
+
+    <div class="backdrop-blur-xl bg-white/20 border border-white/30 text-white shadow-lg text-center w-full max-w-xs rounded-xl p-6 hover:bg-white hover:text-[#9747FF] transition-all">
+      <h2 class="font-bold text-lg mb-4">African-First</h2>
+      <img src="Rectangle 22.png" alt="African-First" class="mx-auto my-4 rounded-lg">
+      <p class="text-sm">
+        We celebrate and center African creativity, culture, and craftsmanship.
+      </p>
+    </div>
+
+    <div class="backdrop-blur-xl bg-white/20 border border-white/30 text-white shadow-lg text-center w-full max-w-xs rounded-xl p-6 hover:bg-white hover:text-[#9747FF] transition-all">
+      <h2 class="font-bold text-lg mb-4">Verified Talent</h2>
+      <img src="Rectangle 22 (1).png" alt="Verified Talent" class="mx-auto my-4 rounded-lg">
+      <p class="text-sm">
+        Every creator is vetted to ensure quality and professionalism.
+      </p>
+    </div>
+
+    <div class="backdrop-blur-xl bg-white/20 border border-white/30 text-white shadow-lg text-center w-full max-w-xs rounded-xl p-6 hover:bg-white hover:text-[#9747FF] transition-all">
+      <h2 class="font-bold text-lg mb-4">Fair Pricing</h2>
+      <img src="Rectangle 22 (2).png" alt="Fair Pricing" class="mx-auto my-4 rounded-lg">
+      <p class="text-sm">
+        Transparent rates that respect the value of creative work.
+      </p>
+    </div>
+
+    <div class="backdrop-blur-xl bg-white/20 border border-white/30 text-white shadow-lg text-center w-full max-w-xs rounded-xl p-6 hover:bg-white hover:text-[#9747FF] transition-all">
+      <h2 class="font-bold text-lg mb-4">Seamless Experience</h2>
+      <img src="Rectangle 22 (3).png" alt="Seamless Experience" class="mx-auto my-4 rounded-lg">
+      <p class="text-sm">
+        From discovery to delivery, everything happens on one intuitive platform.
+      </p>
+    </div>
+
+    <button class="bg-white text-[#9747FF] w-44 h-12 rounded-lg font-bold mt-6 hover:bg-gray-100 transition">
+      Become a Creator
+    </button>
+  </main>
+
+  <!-- Why Section - Desktop -->
+  <main class="hidden md:block bg-[#9747FF] w-full py-12 px-8">
+    <div class="max-w-full mx-auto px-4">
+      <h1 class="text-3xl lg:text-4xl font-bold text-white mb-8">
+        Why Africa. Why now.<br/>Why MyArteLab?
+      </h1>
+
+      <div class="flex gap-4 mb-8">
+        <div class="backdrop-blur-xl bg-purple-500/30 border border-white/20 text-white shadow-lg text-center rounded-xl p-6 flex-1 hover:bg-white hover:text-[#9747FF] transition-all">
+          <h2 class="font-bold text-lg mb-4">African-First</h2>
+           <img src="Rectangle 22.png" alt="African-First" class="mx-auto my-4 rounded-lg">
+          <p class="text-sm">We celebrate and center African creativity, culture, and craftsmanship.</p>
+        </div>
+
+        <div class="backdrop-blur-xl bg-purple-500/30 border border-white/20 text-white shadow-lg text-center rounded-xl p-6 flex-1 hover:bg-white hover:text-[#9747FF] transition-all">
+          <h2 class="font-bold text-lg mb-4">Verified Talent</h2>
+           <img src="Rectangle 22 (1).png" alt="Verified Talent" class="mx-auto my-4 rounded-lg">
+          <p class="text-sm">Every creator is vetted to ensure quality and professionalism.</p>
+        </div>
+
+        <div class="backdrop-blur-xl bg-purple-500/30 border border-white/20 text-white shadow-lg text-center rounded-xl p-6 flex-1 hover:bg-white hover:text-[#9747FF] transition-all">
+          <h2 class="font-bold text-lg mb-4">Fair Pricing</h2>
+            <img src="Rectangle 22 (2).png" alt="Fair Pricing" class="mx-auto my-4 rounded-lg">
+          <p class="text-sm">Transparent rates that respect the value of creative work.</p>
+        </div>
+
+        <div class="backdrop-blur-xl bg-purple-500/30 border border-white/20 text-white shadow-lg text-center rounded-xl p-6 flex-1 hover:bg-white hover:text-[#9747FF] transition-all">
+          <h2 class="font-bold text-lg mb-4">Seamless Experience</h2>
+          <img src="Rectangle 22 (3).png" alt="Seamless Experience" class="mx-auto my-4 rounded-lg">
+          <p class="text-sm">From discovery to delivery, everything happens on one intuitive platform.</p>
+        </div>
+      </div>
+
+      <div class="flex justify-end">
+        <button class="bg-white text-[#9747FF] px-6 py-2 rounded-lg font-bold hover:bg-gray-100 transition">
+          Become a creator
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- How It Works Section -->
+  <main class="w-full px-6 py-12 bg-gray-50">
+    <h1 class="font-gasoek text-xl text-center mb-6">
+      MyArteLab is the trust layer for African creatives and global clients.
+    </h1>
+    <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+      African visual creators can thrive and clients can access top-tier talent with confidence.
+    </p>
+
+    <!-- Creators Section -->
+      <div class="max-w-6xl mx-auto md:flex md:gap-8 md:mb-0 md:flex-1">
+    <section class="bg-white rounded-2xl shadow-sm p-6 mb-10 max-w-2xl mx-auto">
+      <h2 class="text-xl font-semibold mb-6">Creators</h2>
+      <div class="space-y-6">
+        <div class="flex gap-4">
+          <div class="w-8 h-8 flex items-center justify-center rounded-md bg-gray-100 font-semibold font-gasoek flex-shrink-0">1</div>
+          <div>
+            <p class="font-bold">Portfolio</p>
+            <p class="text-sm text-gray-500">Build a professional portfolio that showcases your best work</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="w-8 h-8 flex items-center justify-center rounded-md bg-gray-100 font-semibold font-gasoek flex-shrink-0">2</div>
+          <div>
+            <p class="font-bold">Put you first</p>
+            <p class="text-sm text-gray-500">Set your own rates based on your experience and market value</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="w-8 h-8 flex items-center justify-center rounded-md bg-gray-100 font-semibold font-gasoek flex-shrink-0">3</div>
+          <div>
+            <p class="font-bold">Discovery</p>
+            <p class="text-sm text-gray-500">Get discovered by clients actively looking for your skills</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="w-8 h-8 flex items-center justify-center rounded-md bg-gray-100 font-semibold font-gasoek flex-shrink-0">4</div>
+          <div>
+            <p class="font-bold">Payment</p>
+            <p class="text-sm text-gray-500">Receive secure payments with full transparency</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="w-8 h-8 flex items-center justify-center rounded-md bg-gray-100 font-semibold font-gasoek flex-shrink-0">5</div>
+          <div>
+            <p class="font-bold">Verify</p>
+            <p class="text-sm text-gray-500">Grow your reputation through client reviews and repeat bookings</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="bg-white rounded-2xl shadow-sm p-6 max-w-2xl mx-auto">
+      <h2 class="text-xl font-semibold mb-6">Clients</h2>
+      <div class="space-y-6">
+        <div class="flex gap-4">
+          <div class="w-8 h-8 flex items-center justify-center rounded-md bg-gray-100 font-semibold font-gasoek flex-shrink-0">1</div>
+          <div>
+            <p class="font-bold">Search</p>
+            <p class="text-sm text-gray-500">Browse curated portfolios of verified African photographers and designers</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="w-8 h-8 flex items-center justify-center rounded-md bg-gray-100 font-semibold font-gasoek flex-shrink-0">2</div>
+          <div>
+            <p class="font-bold">Filter</p>
+            <p class="text-sm text-gray-500">Filter by location, style, expertise, and budget</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="w-8 h-8 flex items-center justify-center rounded-md bg-gray-100 font-semibold font-gasoek flex-shrink-0">4</div>
+          <div>
+            <p class="font-bold">Transparency</p>
+            <p class="text-sm text-gray-500">Access transparent pricing and clear project timelines</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="w-8 h-8 flex items-center justify-center rounded-md bg-gray-100 font-semibold font-gasoek flex-shrink-0">5</div>
+          <div>
+            <p class="font-bold">Fair pricing</p>
+            <p class="text-sm text-gray-500">Get quality work at fair, transparent rates</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    </div>
+  </main>
+
+  <!-- Second Hero Image -->
+  <div class="w-full md:flex">
+  <!-- Image side -->
+  <div class="h-72 md:h-auto md:w-1/2 bg-[url(image2.png)] bg-cover bg-center"></div>
+
+  <!-- Content side -->
+  <section class="md:w-1/2 bg-[#8f4cff] px-6 py-16 md:py-20 flex items-center">
+    <div class="max-w-lg mx-auto">
+      <h2 class="text-white font-extrabold text-2xl md:text-3xl leading-tight mb-4">
+        MyArteLab is your<br />launchpad
+      </h2>
+
+      <p class="text-white/80 text-sm md:text-base leading-relaxed mb-8">
+        Whether you're a creator ready to share your work with the world or a client looking for exceptional African talent, we are your go-to. Be part of a platform that's reshaping how creative work is valued, discovered, and celebrated across Africa.
+      </p>
+
+      <button class="bg-white text-[#8f4cff] font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition">
+        Get started
+      </button>
+    </div>
+  </section>
+</div>
+
+
+  <!-- Footer -->
+  <footer class="py-6 bg-white">
+    <p class="text-center text-sm text-black font-bold">
+      © 2025 MyArteLab. All rights reserved.
+    </p>
+  </footer>
+
+</body>
+</html>
