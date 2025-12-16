@@ -655,6 +655,22 @@
       const animatedElements = document.querySelectorAll('.animate-fade-in-up, .animate-fade-in');
       animatedElements.forEach(el => observer.observe(el));
     });
+
+    // Function to set image based on theme
+function setThemeImage() {
+  const theme = localStorage.getItem('theme'); // 'light' or 'dark'
+  const img = document.getElementById('arrowImage');
+
+  if (theme === 'dark') {
+    img.src = 'arr.png'; // replace with your dark mode image
+  } else {
+    img.src = 'arrow.png'; // replace with your light mode image
+  }
+}
+
+// Call the function on page load
+window.addEventListener('DOMContentLoaded', setThemeImage);
+
   </script>
 </body>
 </html>
