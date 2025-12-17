@@ -3,6 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="keywords"
+    content="African photographers, African designers, Hire African creatives, African creative marketplace, Secure creative escrow, Creative payment platform Africa, Pay African creators online, Book photographers Africa, Diaspora hiring creatives, African talent platform"
+  />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Hire Trusted African Creatives | MyArteLab" />
+  <meta property="og:description" content="Discover and book verified African photographers and designers with secure payments and fast local payout." />
+  <meta property="og:image" content="https://myartelab.com/og-image.jpg" />
+  <meta property="og:url" content="https://myartelab.com" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Hire Trusted African Creatives | MyArteLab" />
+  <meta name="twitter:description" content="Discover and book verified African photographers and designers with secure payments and fast local payout." />
+  <meta name="twitter:image" content="https://myartelab.com/og-image.jpg" />
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="shortcut icon" href="favicon-96x96.png" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,6 +46,39 @@
       from {
         opacity: 0;
         transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-100px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(100px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes slideInBottom {
+      from {
+        opacity: 0;
+        transform: translateY(100px);
       }
       to {
         opacity: 1;
@@ -105,8 +153,25 @@
       animation: fadeInUp 0.8s ease-out forwards;
     }
     
+    .animate-slide-in-left {
+      animation: slideInLeft 0.8s ease-out forwards;
+    }
+    
+    .animate-slide-in-right {
+      animation: slideInRight 0.8s ease-out forwards;
+    }
+    
+    .animate-slide-in-bottom {
+      animation: slideInBottom 0.8s ease-out forwards;
+    }
+    
     .animate-fade-in {
       animation: fadeIn 1s ease-out forwards;
+    }
+    
+    /* Elements start invisible for scroll animations */
+    .scroll-animate {
+      opacity: 0;
     }
     
     .animate-delay-1 {
@@ -144,15 +209,13 @@
       animation: glow 2s ease-in-out infinite;
     }
 
-    .creator-client-shadow {
+    /* White box shadow for creator/client cards */
+    .white-shadow-box {
       box-shadow: 
-      -22px 6px 30px 0px rgba(0, 0, 0, 0.05);
-
-    }
-
-    .creator-client-shadow-dark {
-      box-shadow: 
-       -22px 6px 30px 0px rgba(255, 255, 255, 0.03);
+        0 0 0 4px rgba(255, 255, 255, 0.4),
+        0 0 0 8px rgba(255, 255, 255, 0.3),
+        0 0 0 12px rgba(255, 255, 255, 0.2),
+        0 20px 50px rgba(255, 255, 255, 0.2);
     }
 
     .hover-lift {
@@ -162,18 +225,10 @@
     .hover-lift:hover {
       transform: translateY(-15px) scale(1.02);
       box-shadow: 
-        0 0 0 4px rgba(255, 255, 255, 0.4),
-        0 0 0 8px rgba(255, 255, 255, 0.3),
-        0 0 0 12px rgba(255, 255, 255, 0.2),
-        0 30px 60px rgba(255, 255, 255, 0.25);
-    }
-
-    .dark .hover-lift:hover {
-      box-shadow: 
-        0 0 0 4px rgba(147, 71, 255, 0.4),
-        0 0 0 8px rgba(147, 71, 255, 0.3),
-        0 0 0 12px rgba(147, 71, 255, 0.2),
-        0 30px 60px rgba(147, 71, 255, 0.25);
+        0 0 0 6px rgba(255, 255, 255, 0.5),
+        0 0 0 12px rgba(255, 255, 255, 0.4),
+        0 0 0 18px rgba(255, 255, 255, 0.3),
+        0 30px 60px rgba(255, 255, 255, 0.3);
     }
 
     .card-3d-hover {
@@ -259,8 +314,8 @@
   </div>
 
   <!-- Hero Section -->
-  <main id="home" class="px-12 py-12 space-y-6 md:flex md:justify-between md:items-center dark:bg-[#0D0D0D] lg:px-24"> 
-    <div class="space-y-4 animate-fade-in-up">
+  <main id="home" class="px-12 py-12 space-y-6 md:flex md:justify-between md:items-center dark:bg-[#0D0D0D] lg:px-24 scroll-animate"> 
+    <div class="space-y-4">
       <h1 class="font-gasoek font-bold text-4xl md:text-5xl dark:text-white">MyArteLab</h1>
       <p class="font-bold dark:text-gray-300">Built for African Creators.</p>
       <p class="font-bold dark:text-gray-300">Trusted by Clients Globally.</p>
@@ -269,7 +324,7 @@
       </button>
     </div>
 
-    <div class="bg-black dark:bg-white dark:text-black text-white rounded-2xl p-6 -px-12 max-w-md animate-fade-in-up animate-delay-1  cursor-pointer ">
+    <div class="bg-black dark:bg-white dark:text-black text-white rounded-2xl p-6 max-w-md  cursor-pointer">
       <div class="flex items-center gap-6">
         <div class="flex -space-x-3 pulse-animation">
           <img class="w-6 h-6 rounded-full border-2 border-white dark:border-gray-800" src="Ellipse 1.svg" alt="Creator">
@@ -286,11 +341,11 @@
   </main>
 
   <!-- Hero Image -->
-  <div class="w-screen bg-[url(image1.png)] bg-cover bg-center h-72 md:h-[500px] lg:hidden animate-fade-in"></div>
-  <div class="w-screen h-[130vh] bg-[url('desktop.jpeg')] bg-cover bg-center hidden lg:block animate-fade-in"></div>
+  <div class="w-screen bg-[url(image1.png)] bg-cover bg-center h-72 md:h-[500px] lg:hidden scroll-animate"></div>
+  <div class="w-screen h-[130vh] bg-[url('desktop.jpeg')] bg-cover bg-center hidden lg:block scroll-animate"></div>
 
   <!-- Feature Cards - Mobile -->
-  <div id="services" class="relative flex mt-10 px-4 max-w-3xl mx-auto md:hidden dark:bg-gray-900">
+  <div id="services" class="relative flex mt-10 px-4 max-w-3xl mx-auto md:hidden dark:bg-[#0D0D0D] scroll-animate">
     <div class="flex-1 h-96 bg-[#F4F4F4] dark:bg-white rounded-l-2xl transition-colors duration-300"></div>
     <div class="flex-1 h-96 bg-black dark:bg-black rounded-r-2xl transition-colors duration-300"></div>
 
@@ -328,13 +383,13 @@
   </div>
 
   <!-- Value Proposition - Mobile -->
-  <article class="md:hidden px-6 py-12 dark:bg-[#0D0D0D]">
-    <h1 class="text-2xl text-center mb-10 font-bold dark:text-white animate-fade-in-up">
+  <article class="md:hidden px-6 py-12 dark:bg-[#0D0D0D] scroll-animate">
+    <h1 class="text-2xl text-center mb-10 font-bold dark:text-white">
       Stable. Fast. Borderless payments. Powered by Solana.
     </h1>
 
     <div class="space-y-10">
-      <div class="animate-fade-in-up">
+      <div>
         <h2 class="text-2xl font-bold mb-2 dark:text-white">Value proposition</h2>
         <p class="text-gray-600 dark:text-gray-400">
           A trusted marketplace for creative work across Africa.
@@ -343,7 +398,7 @@
         </p>
       </div>
 
-      <div class="animate-fade-in-up animate-delay-1">
+      <div>
         <h2 class="text-2xl font-bold mb-2 dark:text-white">Creators</h2>
         <p class="text-gray-600 dark:text-gray-400">
           Showcase your work, get discovered, agree on your own rates,
@@ -352,7 +407,7 @@
         </p>
       </div>
 
-      <div class="animate-fade-in-up animate-delay-2">
+      <div>
         <h2 class="text-2xl font-bold mb-2 dark:text-white">Clients</h2>
         <p class="text-gray-600 dark:text-gray-400">
           Hire verified creators, browse portfolios, review ratings,
@@ -367,14 +422,14 @@
   </article>
 
   <!-- Desktop Three Column Section -->
-  <div id="about" class="hidden md:flex min-h-screen bg-white dark:bg-[#0D0D0D] text-black dark:text-white p-8 lg:p-16 items-center justify-center transition-colors duration-300">
+  <div id="about" class="hidden md:flex min-h-screen bg-white dark:bg-[#0D0D0D] text-black dark:text-white p-8 lg:p-16 items-center justify-center transition-colors duration-300 scroll-animate">
     <div class="max-w-7xl w-full grid md:grid-cols-3 gap-8 items-center">
       
-      <div class="flex justify-center animate-fade-in-up">
+      <div class="flex justify-center scroll-animate">
         <div class="bg-[#0D0D0D] dark:bg-white text-black dark:text-white rounded-2xl p-8 shadow-2xl w-full max-w-sm transition-colors duration-300">
           <div class="space-y-8">
             <div class="flex items-start gap-4">
-              <div class="p-2 bg-gray-100 dark:bg-gray-700 rounded-lg">
+              <div class="p-2 bg-gray-100 dark:bg-[#0D0D0D] rounded-lg">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
@@ -386,7 +441,7 @@
             </div>
 
             <div class="flex items-start gap-4">
-              <div class="p-2 bg-gray-100 dark:bg-gray-700 rounded-lg">
+              <div class="p-2 bg-gray-100 dark:bg-[#0D0D0D] rounded-lg">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
@@ -398,7 +453,7 @@
             </div>
 
             <div class="flex items-start gap-4">
-              <div class="p-2 bg-gray-100 dark:bg-gray-700 rounded-lg">
+              <div class="p-2 bg-gray-100 dark:bg-[#0D0D0D] rounded-lg">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
@@ -410,7 +465,7 @@
             </div>
 
             <div class="flex items-start gap-4">
-              <div class="p-2 bg-gray-100 dark:bg-gray-700 rounded-lg">
+              <div class="p-2 bg-gray-100 dark:bg-[#0D0D0D] rounded-lg">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
@@ -424,7 +479,7 @@
         </div>
       </div>
 
-      <div class="flex flex-col justify-center animate-fade-in-up animate-delay-1">
+      <div class="flex flex-col justify-center scroll-animate">
         <h1 class="text-4xl lg:text-5xl font-bold leading-tight text-center">
           Stable. Fast.<br/>
           Borderless payments.<br/>
@@ -432,7 +487,7 @@
         </h1>
       </div>
 
-      <div class="space-y-6 animate-fade-in-up animate-delay-2">
+      <div class="space-y-6 scroll-animate">
         <div>
           <h2 class="text-xl font-bold mb-2">Value proposition</h2>
           <p class="text-gray-400 text-sm leading-relaxed">
@@ -462,9 +517,9 @@
   </div>
 
   <!-- Ecosystem Section - Desktop -->
-  <div class="hidden md:block bg-white dark:bg-gray-900 text-black dark:text-white py-16 px-8 transition-colors duration-300">
+  <div class="hidden md:block bg-white dark:bg-[#0D0D0D] text-black dark:text-white py-16 px-8 transition-colors duration-300 scroll-animate">
     <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12 animate-fade-in-up">
+      <div class="text-center mb-12">
         <h2 class="text-4xl lg:text-5xl font-bold mb-4">
           Creating a trusted, transparent<br/>ecosystem
         </h2>
@@ -507,12 +562,12 @@
   </div>
 
   <!-- Why Section - Mobile -->
-  <main class="bg-[#9747FF] w-full py-12 px-6 flex flex-col items-center space-y-6 md:hidden" id="services">
-    <h1 class="font-gasoek text-2xl text-white text-center animate-fade-in-up">
+  <main class="bg-[#9747FF] w-full py-12 px-6 flex flex-col items-center space-y-6 md:hidden scroll-animate">
+    <h1 class="font-gasoek text-2xl text-white text-center">
       Why Africa. Why now. Why MyArteLab?
     </h1>
 
-    <div class="backdrop-blur-xl bg-white/20 border border-white/30 text-white shadow-lg text-center w-full max-w-xs rounded-xl p-6 hover:bg-white hover:text-black transition-all duration-500 transform hover:scale-105 hover:-rotate-2 animate-fade-in-up feature-card-hover cursor-pointer">
+    <div class="backdrop-blur-xl bg-white/20 border border-white/30 text-white shadow-lg text-center w-full max-w-xs rounded-xl p-6 hover:bg-white hover:text-black transition-all duration-500 transform hover:scale-105 hover:-rotate-2 feature-card-hover cursor-pointer scroll-animate">
       <h2 class="font-bold text-lg mb-4">African-First</h2>
       <img src="Rectangle 22.png" alt="African-First" class="mx-auto my-4 rounded-lg transition-transform duration-500 hover:scale-110">
       <p class="text-sm">
@@ -520,7 +575,7 @@
       </p>
     </div>
 
-    <div class="backdrop-blur-xl bg-white/20 border border-white/30 text-white shadow-lg text-center w-full max-w-xs rounded-xl p-6 hover:bg-white hover:text-black transition-all duration-500 transform hover:scale-105 hover:rotate-2 animate-fade-in-up animate-delay-1 feature-card-hover cursor-pointer">
+    <div class="backdrop-blur-xl bg-white/20 border border-white/30 text-white shadow-lg text-center w-full max-w-xs rounded-xl p-6 hover:bg-white hover:text-black transition-all duration-500 transform hover:scale-105 hover:rotate-2 feature-card-hover cursor-pointer scroll-animate">
       <h2 class="font-bold text-lg mb-4">Verified Talent</h2>
       <img src="Rectangle 22 (1).png" alt="Verified Talent" class="mx-auto my-4 rounded-lg transition-transform duration-500 hover:scale-110">
       <p class="text-sm">
@@ -528,15 +583,15 @@
       </p>
     </div>
 
-    <div class="backdrop-blur-xl bg-white/20 border border-white/30 text-white shadow-lg text-center w-full max-w-xs rounded-xl p-6 hover:bg-white hover:text-black transition-all duration-500 transform hover:scale-105 hover:-rotate-2 animate-fade-in-up animate-delay-2 feature-card-hover cursor-pointer">
-      <h2 class="font-bold text-lg mb-4 hover:text-black">Fair Pricing</h2>
+    <div class="backdrop-blur-xl bg-white/20 border border-white/30 text-white shadow-lg text-center w-full max-w-xs rounded-xl p-6 hover:bg-white hover:text-black transition-all duration-500 transform hover:scale-105 hover:-rotate-2 feature-card-hover cursor-pointer scroll-animate">
+      <h2 class="font-bold text-lg mb-4">Fair Pricing</h2>
       <img src="Rectangle 22 (2).png" alt="Fair Pricing" class="mx-auto my-4 rounded-lg transition-transform duration-500 hover:scale-110">
       <p class="text-sm">
         Transparent rates that respect the value of creative work.
       </p>
     </div>
 
-    <div class="backdrop-blur-xl bg-white/20 border border-white/30 text-white shadow-lg text-center w-full max-w-xs rounded-xl p-6 hover:bg-white hover:text-black transition-all duration-500 transform hover:scale-105 hover:rotate-2 animate-fade-in-up animate-delay-3 feature-card-hover cursor-pointer">
+    <div class="backdrop-blur-xl bg-white/20 border border-white/30 text-white shadow-lg text-center w-full max-w-xs rounded-xl p-6 hover:bg-white hover:text-black transition-all duration-500 transform hover:scale-105 hover:rotate-2 feature-card-hover cursor-pointer scroll-animate">
       <h2 class="font-bold text-lg mb-4">Seamless Experience</h2>
       <img src="Rectangle 22 (3).png" alt="Seamless Experience" class="mx-auto my-4 rounded-lg transition-transform duration-500 hover:scale-110">
       <p class="text-sm">
@@ -550,32 +605,32 @@
   </main>
 
   <!-- Why Section - Desktop -->
-  <main class="hidden md:block bg-[#9747FF] w-full py-12 px-8">
+  <main class="hidden md:block bg-[#9747FF] w-full py-12 px-8 scroll-animate">
     <div class="max-w-full mx-auto px-4">
-      <h1 class="text-3xl lg:text-4xl font-bold text-white mb-8 animate-fade-in-up">
+      <h1 class="text-3xl lg:text-4xl font-bold text-white mb-8">
         Why Africa. Why now.<br/>Why MyArteLab?
       </h1>
 
-      <div class="flex gap-4 mb-8">
-        <div class="backdrop-blur-xl bg-purple-500/30 border border-white/20 text-white shadow-lg text-center rounded-xl p-6 flex-1 hover:bg-white hover:text-[#9747FF] transition-all animate-fade-in-up">
+      <div class="flex gap-4 mb-8 scroll-animate">
+        <div class="backdrop-blur-xl bg-purple-500/30 border border-white/20 text-white shadow-lg text-center rounded-xl p-6 flex-1 hover:bg-white hover:text-[#9747FF] transition-all scroll-animate">
           <h2 class="font-bold text-lg mb-4">African-First</h2>
           <img src="Rectangle 22.png" alt="African-First" class="mx-auto my-4 rounded-lg">
           <p class="text-sm">We celebrate and center African creativity, culture, and craftsmanship.</p>
         </div>
 
-        <div class="backdrop-blur-xl bg-purple-500/30 border border-white/20 text-white shadow-lg text-center rounded-xl p-6 flex-1 hover:bg-white hover:text-[#9747FF] transition-all animate-fade-in-up animate-delay-1">
+        <div class="backdrop-blur-xl bg-purple-500/30 border border-white/20 text-white shadow-lg text-center rounded-xl p-6 flex-1 hover:bg-white hover:text-[#9747FF] transition-all scroll-animate">
           <h2 class="font-bold text-lg mb-4">Verified Talent</h2>
           <img src="Rectangle 22 (1).png" alt="Verified Talent" class="mx-auto my-4 rounded-lg">
           <p class="text-sm">Every creator is vetted to ensure quality and professionalism.</p>
         </div>
 
-        <div class="backdrop-blur-xl bg-purple-500/30 border border-white/20 text-white shadow-lg text-center rounded-xl p-6 flex-1 hover:bg-white hover:text-[#9747FF] transition-all animate-fade-in-up animate-delay-2">
+        <div class="backdrop-blur-xl bg-purple-500/30 border border-white/20 text-white shadow-lg text-center rounded-xl p-6 flex-1 hover:bg-white hover:text-[#9747FF] transition-all scroll-animate">
           <h2 class="font-bold text-lg mb-4">Fair Pricing</h2>
           <img src="Rectangle 22 (2).png" alt="Fair Pricing" class="mx-auto my-4 rounded-lg">
           <p class="text-sm">Transparent rates that respect the value of creative work.</p>
         </div>
 
-        <div class="backdrop-blur-xl bg-purple-500/30 border border-white/20 text-white shadow-lg text-center rounded-xl p-6 flex-1 hover:bg-white hover:text-[#9747FF] transition-all animate-fade-in-up animate-delay-3">
+        <div class="backdrop-blur-xl bg-purple-500/30 border border-white/20 text-white shadow-lg text-center rounded-xl p-6 flex-1 hover:bg-white hover:text-[#9747FF] transition-all scroll-animate">
           <h2 class="font-bold text-lg mb-4">Seamless Experience</h2>
           <img src="Rectangle 22 (3).png" alt="Seamless Experience" class="mx-auto my-4 rounded-lg">
           <p class="text-sm">From discovery to delivery, everything happens on one intuitive platform.</p>
@@ -591,20 +646,20 @@
   </main>
 
   <!-- How It Works Section -->
-  <main id="how-it-works" class="w-full px-6 py-12 bg-gray-50 dark:bg-[#0D0D0D] transition-colors duration-300">
-    <h1 class="font-gasoek text-xl text-center mb-6 dark:text-white animate-fade-in-up leading-relaxed">
+  <main id="how-it-works" class="w-full px-6 py-12 bg-gray-50 dark:bg-[#0D0D0D] transition-colors duration-300 scroll-animate">
+    <h1 class="font-gasoek text-xl text-center mb-6 dark:text-white leading-relaxed">
       MyArteLab is the trust layer for <br class="hidden md:block">
        African creatives and global clients.
     </h1>
     
-    <p class="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto animate-fade-in-up animate-delay-1 leading-relaxed">
+    <p class="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
       African visual creators can thrive and clients can <br class="hidden md:block">
        access top-tier talent with confidence.
     </p>
 
     <div class="max-w-6xl mx-auto md:flex md:gap-8">
       <!-- Creators Section -->
-      <section class="bg-white dark:bg-[#0D0D0D] rounded-2xl p-6 mb-10 md:mb-0 md:flex-1 animate-fade-in-up animate-delay-2 hover-lift cursor-pointer transition-all duration-500" style="box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.4), 0 0 0 8px rgba(255, 255, 255, 0.3), 0 0 0 12px rgba(255, 255, 255, 0.2), 0 20px 50px rgba(255, 255, 255, 0.2);">
+      <section class="bg-white dark:bg-[#0D0D0D] rounded-2xl p-6 mb-10 md:mb-0 md:flex-1 white-shadow-box hover-lift cursor-pointer transition-all duration-500 scroll-animate">
         <h2 class="text-xl font-semibold mb-6 dark:text-white">Creators</h2>
         <div class="space-y-6">
           <div class="flex gap-4 hover:translate-x-2 transition-transform duration-300">
@@ -650,7 +705,7 @@
       </section>
 
       <!-- Clients Section -->
-     <section class="bg-white dark:bg-[#0D0D0D] rounded-2xl p-6 mb-10 md:mb-0 md:flex-1 animate-fade-in-up animate-delay-2 hover-lift cursor-pointer transition-all duration-500" style="box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.4), 0 0 0 8px rgba(255, 255, 255, 0.3), 0 0 0 12px rgba(255, 255, 255, 0.2), 0 20px 50px rgba(255, 255, 255, 0.2);">
+     <section class="bg-white dark:bg-[#0D0D0D] rounded-2xl p-6 mb-10 md:mb-0 md:flex-1 white-shadow-box hover-lift cursor-pointer transition-all duration-500 scroll-animate">
         <h2 class="text-xl font-semibold mb-6 dark:text-white">Clients</h2>
         <div class="space-y-6">
           <div class="flex gap-4 hover:translate-x-2 transition-transform duration-300">
@@ -698,11 +753,11 @@
   </main>
 
   <!-- Launchpad Section -->
-  <div class="w-full md:flex">
-    <div class="h-72 md:h-auto md:w-1/2 bg-[url(image2.png)] bg-cover bg-center animate-fade-in flex-2"></div>
+  <div class="w-full md:flex scroll-animate">
+    <div class="h-72 md:h-auto md:w-1/2 bg-[url(image2.png)] bg-cover bg-center flex-2 scroll-animate"></div>
 
-    <section class="md:w-1/2 bg-[#8f4cff] px-6 py-16 md:py-20 flex items-center flex-1">
-      <div class="max-w-lg mx-auto animate-fade-in-up">
+    <section class="md:w-1/2 bg-[#8f4cff] px-6 py-16 md:py-20 flex items-center flex-1 scroll-animate">
+      <div class="max-w-lg mx-auto">
         <h2 class="text-white font-extrabold text-2xl md:text-3xl leading-tight mb-4">
           MyArteLab is your<br/>launchpad
         </h2>
@@ -725,7 +780,7 @@
   </div>
 
   <!-- Footer -->
-  <footer class="py-6 bg-white dark:bg-[#0D0D0D] transition-colors duration-300">
+  <footer class="py-6 bg-white dark:bg-[#0D0D0D] transition-colors duration-300 scroll-animate">
     <p class="text-center text-sm text-black dark:text-white font-bold">
       © 2025 MyArteLab. All rights reserved.
     </p>
@@ -762,20 +817,31 @@
 
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      rootMargin: '0px 0px -100px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
+          // Determine animation direction based on element position
+          const rect = entry.target.getBoundingClientRect();
+          const isLeft = rect.left < window.innerWidth / 2;
+          
+          // Add appropriate animation class
+          if (entry.target.classList.contains('scroll-animate')) {
+            if (isLeft) {
+              entry.target.classList.add('animate-slide-in-left');
+            } else {
+              entry.target.classList.add('animate-slide-in-right');
+            }
+            entry.target.classList.remove('scroll-animate');
+          }
         }
       });
     }, observerOptions);
 
     document.addEventListener('DOMContentLoaded', () => {
-      const animatedElements = document.querySelectorAll('.animate-fade-in-up, .animate-fade-in');
+      const animatedElements = document.querySelectorAll('.scroll-animate');
       animatedElements.forEach(el => observer.observe(el));
     });
 
