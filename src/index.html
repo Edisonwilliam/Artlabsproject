@@ -46,6 +46,60 @@
         opacity: 1;
       }
     }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    @keyframes glide {
+      0%, 100% {
+        transform: translateX(0px);
+      }
+      50% {
+        transform: translateX(15px);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: -1000px 0;
+      }
+      100% {
+        background-position: 1000px 0;
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes glow {
+      0%, 100% {
+        box-shadow: 0 0 20px rgba(147, 71, 255, 0.5);
+      }
+      50% {
+        box-shadow: 0 0 40px rgba(147, 71, 255, 0.8);
+      }
+    }
     
     .animate-fade-in-up {
       animation: fadeInUp 0.8s ease-out forwards;
@@ -64,25 +118,109 @@
       animation-delay: 0.4s;
       opacity: 0;
     }
-    
+
     .animate-delay-3 {
       animation-delay: 0.6s;
       opacity: 0;
     }
+
+    .float-animation {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .glide-animation {
+      animation: glide 4s ease-in-out infinite;
+    }
+
+    .pulse-animation {
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .bounce-animation {
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    .glow-border {
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    .creator-client-shadow {
+      box-shadow: 
+        0 0 0 4px rgba(255, 255, 255, 0.3),
+        0 0 0 8px rgba(255, 255, 255, 0.2),
+        0 0 0 12px rgba(255, 255, 255, 0.1),
+        0 20px 50px rgba(255, 255, 255, 0.15);
+    }
+
+    .creator-client-shadow-dark {
+      box-shadow: 
+        0 0 0 4px rgba(147, 71, 255, 0.3),
+        0 0 0 8px rgba(147, 71, 255, 0.2),
+        0 0 0 12px rgba(147, 71, 255, 0.1),
+        0 20px 50px rgba(147, 71, 255, 0.15);
+    }
+
+    .hover-lift {
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .hover-lift:hover {
+      transform: translateY(-15px) scale(1.02);
+      box-shadow: 
+        0 0 0 4px rgba(255, 255, 255, 0.4),
+        0 0 0 8px rgba(255, 255, 255, 0.3),
+        0 0 0 12px rgba(255, 255, 255, 0.2),
+        0 30px 60px rgba(255, 255, 255, 0.25);
+    }
+
+    .dark .hover-lift:hover {
+      box-shadow: 
+        0 0 0 4px rgba(147, 71, 255, 0.4),
+        0 0 0 8px rgba(147, 71, 255, 0.3),
+        0 0 0 12px rgba(147, 71, 255, 0.2),
+        0 30px 60px rgba(147, 71, 255, 0.25);
+    }
+
+    .card-3d-hover {
+      transition: all 0.4s ease;
+      transform-style: preserve-3d;
+    }
+
+    .card-3d-hover:hover {
+      transform: perspective(1000px) rotateY(5deg) rotateX(-5deg) translateZ(20px);
+    }
+
+    .shimmer-effect {
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 100%
+      );
+      background-size: 200% 100%;
+      animation: shimmer 3s infinite;
+    }
+
+    .feature-card-hover {
+      transition: all 0.3s ease;
+    }
+
+    .feature-card-hover:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 25px 50px rgba(147, 71, 255, 0.4);
+    }
   </style>
 </head>
 
-<body class="font-inter dark:bg-gray-900 transition-colors duration-300">
+<body class="font-inter dark:bg-[#0D0D0D] transition-colors duration-300">
   <!-- Navigation -->
-  <nav class="flex items-center justify-between px-6 py-4 bg-white dark:bg-gray-800 transition-colors duration-300 sticky top-0 z-50 shadow-sm">
-    <!-- Logo -->
+  <nav class="flex items-center justify-between px-6 py-4 bg-white dark:bg-[#0D0D0D] transition-colors duration-300 sticky top-0 z-50 shadow-sm">
     <div class="flex items-center gap-3 animate-fade-in" id="home">
       <a href="#home" class="flex items-center gap-3 animate-fade-in">
-  <img src="logo 1.svg" alt="Artlabs Logo" class="h-8"/>
-</a>
+        <img src="logo 1.svg" alt="Artlabs Logo" class="h-8"/>
+      </a>
     </div>
 
-    <!-- Navigation links -->
     <ul class="hidden md:flex items-center space-x-10 text-sm font-bold text-gray-900 dark:text-gray-100">
       <li><a href="#home" class="cursor-pointer hover:text-purple-600 dark:hover:text-purple-400 transition">Home</a></li>
       <li><a href="#about" class="cursor-pointer hover:text-purple-600 dark:hover:text-purple-400 transition">About us</a></li>
@@ -90,25 +228,21 @@
       <li><a href="#how-it-works" class="cursor-pointer hover:text-purple-600 dark:hover:text-purple-400 transition">How it works</a></li>
     </ul>
 
-    <!-- Right controls -->
     <div class="flex items-center gap-6">
-      <!-- Theme toggle -->
       <div class="flex items-center gap-3 cursor-pointer" onclick="toggleTheme()">
-        <div class="relative w-14 h-7 rounded-full bg-gray-300 dark:bg-gray-600 transition-colors duration-300">
+        <div class="relative w-14 h-7 rounded-full bg-[#0D0D0D] dark:bg-gray-200 transition-colors duration-300">
           <div id="toggleBall" class="absolute top-1 left-1 w-5 h-5 rounded-full bg-white shadow-md transition-transform duration-300 dark:translate-x-7"></div>
         </div>
-        <p id="themeText" class="hidden md:block text-sm font-bold text-gray-900 dark:text-gray-100">
+        <p id="themeText" class="hidden md:hidden lg:block text-sm font-bold text-gray-900 dark:text-gray-100">
           Light mode
         </p>
       </div>
 
-      <!-- Mobile Menu Button -->
       <button onclick="toggleMenu()">
         <img src="ep_menu.svg" alt="Menu" class="md:hidden cursor-pointer w-6 h-6" />
       </button>
 
-      <!-- CTA -->
-      <button class="hidden md:block px-6 py-2 bg-purple-600 rounded-lg text-white hover:bg-purple-700 transition transform hover:scale-105">
+      <button class="hidden md:block px-6 py-2 bg-purple-600 rounded-lg text-white hover:bg-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl active:scale-95 shimmer-effect relative overflow-hidden">
         Explore
       </button>
     </div>
@@ -130,27 +264,27 @@
   </div>
 
   <!-- Hero Section -->
-  <main id="home" class="px-6 py-12 space-y-6 md:flex md:justify-between md:items-center dark:bg-gray-900"> 
+  <main id="home" class="px-12 py-12 space-y-6 md:flex md:justify-between md:items-center dark:bg-[#0D0D0D] lg:px-24"> 
     <div class="space-y-4 animate-fade-in-up">
       <h1 class="font-gasoek font-bold text-4xl md:text-5xl dark:text-white">MyArteLab</h1>
       <p class="font-bold dark:text-gray-300">Built for African Creators.</p>
       <p class="font-bold dark:text-gray-300">Trusted by Clients Globally.</p>
-      <button class="bg-black dark:bg-purple-600 text-white w-40 h-10 rounded-md font-bold hover:bg-gray-800 dark:hover:bg-purple-700 transition transform hover:scale-105">
+      <button class="bg-black dark:bg-purple-600 text-white w-40 h-10 rounded-md font-bold hover:bg-gray-800 dark:hover:bg-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl active:scale-95 glow-border">
         Become a Creator
       </button>
     </div>
 
-    <div class="bg-black dark:bg-gray-800 text-white rounded-2xl p-6 max-w-md animate-fade-in-up animate-delay-1">
+    <div class="bg-black dark:bg-white dark:text-black text-white rounded-2xl p-6 max-w-md animate-fade-in-up animate-delay-1  cursor-pointer">
       <div class="flex items-center gap-6">
-        <div class="flex -space-x-3">
-          <img class="w-6 h-6 rounded-full border-2 border-black dark:border-gray-800" src="Ellipse 1.svg" alt="Creator">
-          <img class="w-6 h-6 rounded-full border-2 border-black dark:border-gray-800" src="Ellipse 2.svg" alt="Creator">
-          <img class="w-6 h-6 rounded-full border-2 border-black dark:border-gray-800" src="Ellipse 3.svg" alt="Creator">
-          <img class="w-6 h-6 rounded-full border-2 border-black dark:border-gray-800" src="Ellipse 4.svg" alt="Creator">
+        <div class="flex -space-x-1 pulse-animation">
+          <img class="w-7 h-7 rounded-full border-2 border-white dark:border-gray-800" src="Ellipse 1.svg" alt="Creator">
+          <img class="w-7 h-7 rounded-full border-2 border-white dark:border-gray-800" src="Ellipse 2.svg" alt="Creator">
+          <img class="w-7 h-7 rounded-full border-2 border-white dark:border-gray-800" src="Ellipse 3.svg" alt="Creator">
+          <img class="w-7 h-7 rounded-full border-2 border-white dark:border-gray-800" src="Ellipse 5.svg" alt="Creator">
         </div>
         <div class="flex flex-col">
           <h2 class="font-semibold text-base">Trusted by creators in</h2>
-          <span class="text-sm text-gray-300">500+ verified creators across 15 African countries</span>
+          <span class="text-sm text-gray-300 dark:text-black">500+ verified creators across 15 African countries</span>
         </div>
       </div>
     </div>
@@ -165,7 +299,7 @@
     <div class="flex-1 h-96 bg-[#F4F4F4] dark:bg-gray-800 rounded-l-2xl transition-colors duration-300"></div>
     <div class="flex-1 h-96 bg-black dark:bg-gray-700 rounded-r-2xl transition-colors duration-300"></div>
 
-    <div class="absolute top-28 right-6 bg-white dark:bg-gray-800 rounded-xl shadow-md px-4 py-3 w-60 flex items-center gap-4 animate-fade-in-up">
+    <div class="absolute top-28 right-6 bg-white dark:bg-gray-800 rounded-xl shadow-md px-4 py-3 w-60 flex items-center gap-4 animate-fade-in-up float-animation card-3d-hover cursor-pointer">
       <div><img src="Frame.png" alt="Secure Icon" class="mb-2"></div>
       <div>
         <p class="font-semibold text-sm dark:text-white">Secure</p>
@@ -173,7 +307,7 @@
       </div>
     </div>
 
-    <div class="absolute bottom-28 right-10 bg-white dark:bg-gray-800 rounded-xl shadow-md px-4 py-3 w-60 flex items-center gap-4 animate-fade-in-up animate-delay-1">
+    <div class="absolute bottom-28 right-10 bg-white dark:bg-gray-800 rounded-xl shadow-md px-4 py-3 w-60 flex items-center gap-4 animate-fade-in-up animate-delay-1 glide-animation card-3d-hover cursor-pointer">
       <div><img src="frame2.png" alt="Fair Icon" class="mb-2"></div>
       <div>
         <p class="font-semibold text-sm dark:text-white">Fair</p>
@@ -181,7 +315,7 @@
       </div>
     </div>
 
-    <div class="absolute top-10 left-6 bg-white dark:bg-gray-800 rounded-xl shadow-md px-4 py-3 w-60 flex items-center gap-4 animate-fade-in-up animate-delay-2">
+    <div class="absolute top-10 left-6 bg-white dark:bg-gray-800 rounded-xl shadow-md px-4 py-3 w-60 flex items-center gap-4 animate-fade-in-up animate-delay-2 float-animation card-3d-hover cursor-pointer" style="animation-delay: 0.4s; animation-duration: 5s;">
       <div><img src="frame3.png" alt="Fast Icon" class="mb-2"></div>
       <div>
         <p class="font-semibold text-sm dark:text-white">Fast</p>
@@ -189,7 +323,7 @@
       </div>
     </div>
 
-    <div class="absolute bottom-6 left-10 bg-white dark:bg-gray-800 rounded-xl shadow-md px-4 py-3 w-64 flex items-center gap-4 animate-fade-in-up animate-delay-3">
+    <div class="absolute bottom-6 left-10 bg-white dark:bg-gray-800 rounded-xl shadow-md px-4 py-3 w-64 flex items-center gap-4 animate-fade-in-up animate-delay-3 glide-animation card-3d-hover cursor-pointer" style="animation-delay: 0.6s; animation-duration: 5s;">
       <div><img src="frame4.png" alt="Marketplace Icon" class="mb-2"></div>
       <div>
         <p class="font-semibold text-sm dark:text-white">Marketplace</p>
@@ -199,7 +333,7 @@
   </div>
 
   <!-- Value Proposition - Mobile -->
-  <article class="md:hidden px-6 py-12 dark:bg-gray-900">
+  <article class="md:hidden px-6 py-12 dark:bg-[#0D0D0D]">
     <h1 class="font-gasoek text-2xl text-center mb-10 font-bold dark:text-white animate-fade-in-up">
       Stable. Fast. Borderless payments. Powered by Solana.
     </h1>
@@ -230,7 +364,7 @@
           book safely, and pay with full transparency through secure
           escrow.
         </p>
-        <button class="bg-[#9747FF] text-white w-44 h-10 rounded-md font-bold mt-4 hover:bg-purple-700 transition transform hover:scale-105">
+        <button class="bg-[#9747FF] text-white w-44 h-10 rounded-md font-bold mt-4 hover:bg-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl active:scale-95 glow-border">
           Become a Creator
         </button>
       </div>
@@ -238,12 +372,11 @@
   </article>
 
   <!-- Desktop Three Column Section -->
-  <div id="about" class="hidden md:flex min-h-screen bg-white dark:bg-gray-900 text-black dark:text-white p-8 lg:p-16 items-center justify-center transition-colors duration-300">
+  <div id="about" class="hidden md:flex min-h-screen bg-white dark:bg-[#0D0D0D] text-black dark:text-white p-8 lg:p-16 items-center justify-center transition-colors duration-300">
     <div class="max-w-7xl w-full grid md:grid-cols-3 gap-8 items-center">
       
-      <!-- Left - Feature cards -->
       <div class="flex justify-center animate-fade-in-up">
-        <div class="bg-white dark:bg-gray-800 text-black dark:text-white rounded-2xl p-8 shadow-2xl w-full max-w-sm transition-colors duration-300">
+        <div class="bg-[#0D0D0D] dark:bg-white text-black dark:text-white rounded-2xl p-8 shadow-2xl w-full max-w-sm transition-colors duration-300">
           <div class="space-y-8">
             <div class="flex items-start gap-4">
               <div class="p-2 bg-gray-100 dark:bg-gray-700 rounded-lg">
@@ -252,7 +385,7 @@
                 </svg>
               </div>
               <div>
-                <h3 class="font-bold text-lg mb-1">Secure</h3>
+                <h3 class="font-bold text-lg mb-1 text-white dark:text-black">Secure</h3>
                 <p class="text-gray-600 dark:text-gray-400 text-sm">Your work and funds are always safe</p>
               </div>
             </div>
@@ -264,7 +397,7 @@
                 </svg>
               </div>
               <div>
-                <h3 class="font-bold text-lg mb-1">Fast</h3>
+                <h3 class="font-bold text-lg mb-1 text-white dark:text-black">Fast</h3>
                 <p class="text-gray-600 dark:text-gray-400 text-sm">No more weeks of waiting</p>
               </div>
             </div>
@@ -276,7 +409,7 @@
                 </svg>
               </div>
               <div>
-                <h3 class="font-bold text-lg mb-1">Fair</h3>
+                <h3 class="font-bold text-lg mb-1 text-white dark:text-black">Fair</h3>
                 <p class="text-gray-600 dark:text-gray-400 text-sm">Set your own rates</p>
               </div>
             </div>
@@ -288,7 +421,7 @@
                 </svg>
               </div>
               <div>
-                <h3 class="font-bold text-lg mb-1">Marketplace</h3>
+                <h3 class="font-bold text-lg mb-1 text-white dark:text-black">Marketplace</h3>
                 <p class="text-gray-600 dark:text-gray-400 text-sm">Find the creative vision your project needs</p>
               </div>
             </div>
@@ -296,7 +429,6 @@
         </div>
       </div>
 
-      <!-- Middle - Main heading -->
       <div class="flex flex-col justify-center animate-fade-in-up animate-delay-1">
         <h1 class="text-4xl lg:text-5xl font-bold leading-tight text-center">
           Stable. Fast.<br/>
@@ -305,7 +437,6 @@
         </h1>
       </div>
 
-      <!-- Right - Value proposition -->
       <div class="space-y-6 animate-fade-in-up animate-delay-2">
         <div>
           <h2 class="text-xl font-bold mb-2">Value proposition</h2>
@@ -328,7 +459,7 @@
           </p>
         </div>
 
-        <button class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg transition-colors transform hover:scale-105">
+        <button class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl active:scale-95 glow-border">
           Become a creator
         </button>
       </div>
@@ -348,31 +479,26 @@
         </p>
       </div>
 
-    <div class="relative">
+      <div class="relative">
         <div class="relative max-w-7xl mx-auto px-8">
           <div class="relative" style="height: 450px;">
-            <!-- Center - Large Flower Image (Behind) - Truly Centered -->
-            <div class="absolute top-12 left-14 -translate-x-1/2 -translate-y-1/2 w-[660px] h-[300px] rounded-lg z-0 animate-fade-in-up animate-delay-2 lg:w-[1000px]">
+            <div class="absolute top-12 left-14 -translate-x-1/2 -translate-y-1/2 w-[660px] h-[300px] rounded-lg z-0 animate-fade-in-up animate-delay-2 lg:w-[1000px] hover:scale-105 transition-transform duration-700 cursor-pointer">
               <img src="Rectangle 17.png" class="w-full h-full object-cover rounded-lg" alt="Center Image">
             </div>
             
-            <!-- Top Left Corner -->
-            <div class="absolute top-0 left-0 w-56 h-44 rounded-lg z-10 animate-fade-in-up">
+            <div class="absolute top-0 left-0 w-56 h-44 rounded-lg z-10 animate-fade-in-up float-animation hover:scale-110 transition-transform duration-500 cursor-pointer">
               <img src="Rectangle 18.png" class="w-full h-full object-cover rounded-lg" alt="Image 1">
             </div>
             
-            <!-- Top Right Corner -->
-            <div class="absolute top-0 right-0 w-52 h-40 rounded-lg z-10 animate-fade-in-up animate-delay-1">
+            <div class="absolute top-0 right-0 w-52 h-40 rounded-lg z-10 animate-fade-in-up animate-delay-1 glide-animation hover:scale-110 transition-transform duration-500 cursor-pointer">
               <img src="Rectangle 20.png" class="w-full h-full object-cover rounded-lg" alt="Image 2">
             </div>
             
-            <!-- Bottom Left Corner -->
-            <div class="absolute bottom-0 left-0 w-52 h-40 rounded-lg z-10 animate-fade-in-up animate-delay-3">
+            <div class="absolute bottom-0 left-0 w-52 h-40 rounded-lg z-10 animate-fade-in-up animate-delay-3 float-animation hover:scale-110 transition-transform duration-500 cursor-pointer" style="animation-duration: 5s;">
               <img src="Rectangle 19.png" class="w-full h-full object-cover rounded-lg" alt="Image 3">
             </div>
             
-            <!-- Bottom Right Corner -->
-            <div class="absolute bottom-0 right-0 w-60 h-36 rounded-lg z-10 animate-fade-in-up animate-delay-3">
+            <div class="absolute bottom-0 right-0 w-60 h-36 rounded-lg z-10 animate-fade-in-up animate-delay-3 glide-animation hover:scale-110 transition-transform duration-500 cursor-pointer" style="animation-duration: 5s;">
               <img src="Rectangle 21.png" class="w-full h-full object-cover rounded-lg" alt="Image 4">
             </div>
           </div>
@@ -391,39 +517,39 @@
       Why Africa. Why now. Why MyArteLab?
     </h1>
 
-    <div class="backdrop-blur-xl bg-white/20 border border-white/30 text-white shadow-lg text-center w-full max-w-xs rounded-xl p-6 hover:bg-white hover:text-[#9747FF] transition-all animate-fade-in-up">
+    <div class="backdrop-blur-xl bg-white/20 border border-white/30 text-white shadow-lg text-center w-full max-w-xs rounded-xl p-6 hover:bg-white hover:text-black transition-all duration-500 transform hover:scale-105 hover:-rotate-2 animate-fade-in-up feature-card-hover cursor-pointer">
       <h2 class="font-bold text-lg mb-4">African-First</h2>
-      <img src="Rectangle 22.png" alt="African-First" class="mx-auto my-4 rounded-lg">
+      <img src="Rectangle 22.png" alt="African-First" class="mx-auto my-4 rounded-lg transition-transform duration-500 hover:scale-110">
       <p class="text-sm">
         We celebrate and center African creativity, culture, and craftsmanship.
       </p>
     </div>
 
-    <div class="backdrop-blur-xl bg-white/20 border border-white/30 text-white shadow-lg text-center w-full max-w-xs rounded-xl p-6 hover:bg-white hover:text-[#9747FF] transition-all animate-fade-in-up animate-delay-1">
+    <div class="backdrop-blur-xl bg-white/20 border border-white/30 text-white shadow-lg text-center w-full max-w-xs rounded-xl p-6 hover:bg-white hover:text-black transition-all duration-500 transform hover:scale-105 hover:rotate-2 animate-fade-in-up animate-delay-1 feature-card-hover cursor-pointer">
       <h2 class="font-bold text-lg mb-4">Verified Talent</h2>
-      <img src="Rectangle 22 (1).png" alt="Verified Talent" class="mx-auto my-4 rounded-lg">
+      <img src="Rectangle 22 (1).png" alt="Verified Talent" class="mx-auto my-4 rounded-lg transition-transform duration-500 hover:scale-110">
       <p class="text-sm">
         Every creator is vetted to ensure quality and professionalism.
       </p>
     </div>
 
-    <div class="backdrop-blur-xl bg-white/20 border border-white/30 text-white shadow-lg text-center w-full max-w-xs rounded-xl p-6 hover:bg-white hover:text-[#9747FF] transition-all animate-fade-in-up animate-delay-2">
-      <h2 class="font-bold text-lg mb-4">Fair Pricing</h2>
-      <img src="Rectangle 22 (2).png" alt="Fair Pricing" class="mx-auto my-4 rounded-lg">
+    <div class="backdrop-blur-xl bg-white/20 border border-white/30 text-white shadow-lg text-center w-full max-w-xs rounded-xl p-6 hover:bg-white hover:text-black transition-all duration-500 transform hover:scale-105 hover:-rotate-2 animate-fade-in-up animate-delay-2 feature-card-hover cursor-pointer">
+      <h2 class="font-bold text-lg mb-4 hover:text-black">Fair Pricing</h2>
+      <img src="Rectangle 22 (2).png" alt="Fair Pricing" class="mx-auto my-4 rounded-lg transition-transform duration-500 hover:scale-110">
       <p class="text-sm">
         Transparent rates that respect the value of creative work.
       </p>
     </div>
 
-    <div class="backdrop-blur-xl bg-white/20 border border-white/30 text-white shadow-lg text-center w-full max-w-xs rounded-xl p-6 hover:bg-white hover:text-[#9747FF] transition-all animate-fade-in-up animate-delay-3">
+    <div class="backdrop-blur-xl bg-white/20 border border-white/30 text-white shadow-lg text-center w-full max-w-xs rounded-xl p-6 hover:bg-white hover:text-black transition-all duration-500 transform hover:scale-105 hover:rotate-2 animate-fade-in-up animate-delay-3 feature-card-hover cursor-pointer">
       <h2 class="font-bold text-lg mb-4">Seamless Experience</h2>
-      <img src="Rectangle 22 (3).png" alt="Seamless Experience" class="mx-auto my-4 rounded-lg">
+      <img src="Rectangle 22 (3).png" alt="Seamless Experience" class="mx-auto my-4 rounded-lg transition-transform duration-500 hover:scale-110">
       <p class="text-sm">
         From discovery to delivery, everything happens on one intuitive platform.
       </p>
     </div>
 
-    <button class="bg-white text-[#9747FF] w-44 h-12 rounded-lg font-bold mt-6 hover:bg-gray-100 transition transform hover:scale-105">
+    <button class="bg-white text-[#9747FF] w-44 h-12 rounded-lg font-bold mt-6 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl active:scale-95">
       Become a Creator
     </button>
   </main>
@@ -462,7 +588,7 @@
       </div>
 
       <div class="flex justify-end animate-fade-in">
-        <button class="bg-white text-[#9747FF] px-6 py-2 rounded-lg font-bold hover:bg-gray-100 transition transform hover:scale-105">
+        <button class="bg-white text-[#9747FF] px-6 py-2 rounded-lg font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl active:scale-95">
           Become a creator
         </button>
       </div>
@@ -470,53 +596,56 @@
   </main>
 
   <!-- How It Works Section -->
-  <main id="how-it-works" class="w-full px-6 py-12 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
-    <h1 class="font-gasoek text-xl text-center mb-6 dark:text-white animate-fade-in-up">
-      MyArteLab is the trust layer for African creatives and global clients.
+  <main id="how-it-works" class="w-full px-6 py-12 bg-gray-50 dark:bg-[#0D0D0D] transition-colors duration-300">
+    <h1 class="font-gasoek text-xl text-center mb-6 dark:text-white animate-fade-in-up leading-relaxed">
+      MyArteLab is the trust layer for <br>
+       African creatives and global clients.
     </h1>
-    <p class="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto animate-fade-in-up animate-delay-1">
-      African visual creators can thrive and clients can access top-tier talent with confidence.
+    
+    <p class="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto animate-fade-in-up animate-delay-1 leading-relaxed">
+      African visual creators can thrive and clients can <br>
+       access top-tier talent with confidence.
     </p>
 
     <div class="max-w-6xl mx-auto md:flex md:gap-8">
       <!-- Creators Section -->
-      <section class="bg-white dark:bg-gray-900 rounded-2xl shadow-sm p-6 mb-10 md:mb-0 md:flex-1 animate-fade-in-up animate-delay-2">
+      <section class="bg-white dark:bg-[#0D0D0D] rounded-2xl p-6 mb-10 md:mb-0 md:flex-1 animate-fade-in-up animate-delay-2 hover-lift cursor-pointer transition-all duration-500" style="box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.4), 0 0 0 8px rgba(255, 255, 255, 0.3), 0 0 0 12px rgba(255, 255, 255, 0.2), 0 20px 50px rgba(255, 255, 255, 0.2);">
         <h2 class="text-xl font-semibold mb-6 dark:text-white">Creators</h2>
         <div class="space-y-6">
-          <div class="flex gap-4">
-            <div class="w-8 h-8 flex items-center justify-center rounded-md bg-gray-100 dark:bg-gray-700 font-semibold font-gasoek flex-shrink-0">1</div>
+          <div class="flex gap-4 hover:translate-x-2 transition-transform duration-300">
+            <div class="w-8 h-8 flex items-center justify-center rounded-md bg-gray-100 dark:bg-white font-semibold font-gasoek shrink-0 bounce-animation">1</div>
             <div>
               <p class="font-bold dark:text-white">Portfolio</p>
               <p class="text-sm text-gray-500 dark:text-gray-400">Build a professional portfolio that showcases your best work</p>
             </div>
           </div>
 
-          <div class="flex gap-4">
-            <div class="w-8 h-8 flex items-center justify-center rounded-md bg-gray-100 dark:bg-gray-700 font-semibold font-gasoek flex-shrink-0">2</div>
+          <div class="flex gap-4 hover:translate-x-2 transition-transform duration-300">
+            <div class="w-8 h-8 flex items-center justify-center rounded-md bg-gray-100 dark:bg-white font-semibold font-gasoek shrink-0 bounce-animation" style="animation-delay: 0.2s;">2</div>
             <div>
               <p class="font-bold dark:text-white">Put you first</p>
               <p class="text-sm text-gray-500 dark:text-gray-400">Set your own rates based on your experience and market value</p>
             </div>
           </div>
 
-          <div class="flex gap-4">
-            <div class="w-8 h-8 flex items-center justify-center rounded-md bg-gray-100 dark:bg-gray-700 font-semibold font-gasoek flex-shrink-0">3</div>
+          <div class="flex gap-4 hover:translate-x-2 transition-transform duration-300">
+            <div class="w-8 h-8 flex items-center justify-center rounded-md bg-gray-100 dark:bg-white font-semibold font-gasoek shrink-0 bounce-animation" style="animation-delay: 0.4s;">3</div>
             <div>
               <p class="font-bold dark:text-white">Discovery</p>
               <p class="text-sm text-gray-500 dark:text-gray-400">Get discovered by clients actively looking for your skills</p>
             </div>
           </div>
 
-          <div class="flex gap-4">
-            <div class="w-8 h-8 flex items-center justify-center rounded-md bg-gray-100 dark:bg-gray-700 font-semibold font-gasoek flex-shrink-0">4</div>
+          <div class="flex gap-4 hover:translate-x-2 transition-transform duration-300">
+            <div class="w-8 h-8 flex items-center justify-center rounded-md bg-gray-100 dark:bg-white font-semibold font-gasoek shrink-0 bounce-animation" style="animation-delay: 0.6s;">4</div>
             <div>
               <p class="font-bold dark:text-white">Payment</p>
               <p class="text-sm text-gray-500 dark:text-gray-400">Receive secure payments with full transparency</p>
             </div>
           </div>
 
-          <div class="flex gap-4">
-            <div class="w-8 h-8 flex items-center justify-center rounded-md bg-gray-100 dark:bg-gray-700 font-semibold font-gasoek flex-shrink-0">5</div>
+          <div class="flex gap-4 hover:translate-x-2 transition-transform duration-300">
+            <div class="w-8 h-8 flex items-center justify-center rounded-md bg-gray-100 dark:bg-white font-semibold font-gasoek shrink-0 bounce-animation" style="animation-delay: 0.8s;">5</div>
             <div>
               <p class="font-bold dark:text-white">Verify</p>
               <p class="text-sm text-gray-500 dark:text-gray-400">Grow your reputation through client reviews and repeat bookings</p>
@@ -526,43 +655,43 @@
       </section>
 
       <!-- Clients Section -->
-      <section class="bg-white dark:bg-gray-900 rounded-2xl shadow-sm p-6 md:flex-1 animate-fade-in-up animate-delay-3">
+     <section class="bg-white dark:bg-[#0D0D0D] rounded-2xl p-6 mb-10 md:mb-0 md:flex-1 animate-fade-in-up animate-delay-2 hover-lift cursor-pointer transition-all duration-500" style="box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.4), 0 0 0 8px rgba(255, 255, 255, 0.3), 0 0 0 12px rgba(255, 255, 255, 0.2), 0 20px 50px rgba(255, 255, 255, 0.2);">
         <h2 class="text-xl font-semibold mb-6 dark:text-white">Clients</h2>
         <div class="space-y-6">
-          <div class="flex gap-4">
-            <div class="w-8 h-8 flex items-center justify-center rounded-md bg-gray-100 dark:bg-gray-700 font-semibold font-gasoek flex-shrink-0">1</div>
+          <div class="flex gap-4 hover:translate-x-2 transition-transform duration-300">
+            <div class="w-8 h-8 flex items-center justify-center rounded-md bg-gray-100 dark:bg-white font-semibold font-gasoek shrink-0 bounce-animation">1</div>
             <div>
               <p class="font-bold dark:text-white">Search</p>
               <p class="text-sm text-gray-500 dark:text-gray-400">Browse curated portfolios of verified African photographers and designers</p>
             </div>
           </div>
 
-          <div class="flex gap-4">
-            <div class="w-8 h-8 flex items-center justify-center rounded-md bg-gray-100 dark:bg-gray-700 font-semibold font-gasoek flex-shrink-0">2</div>
+          <div class="flex gap-4 hover:translate-x-2 transition-transform duration-300">
+            <div class="w-8 h-8 flex items-center justify-center rounded-md bg-gray-100 dark:bg-white font-semibold font-gasoek shrink-0 bounce-animation" style="animation-delay: 0.2s;">2</div>
             <div>
               <p class="font-bold dark:text-white">Filter</p>
               <p class="text-sm text-gray-500 dark:text-gray-400">Filter by location, style, expertise, and budget</p>
             </div>
           </div>
 
-          <div class="flex gap-4">
-            <div class="w-8 h-8 flex items-center justify-center rounded-md bg-gray-100 dark:bg-gray-700 font-semibold font-gasoek flex-shrink-0">3</div>
+          <div class="flex gap-4 hover:translate-x-2 transition-transform duration-300">
+            <div class="w-8 h-8 flex items-center justify-center rounded-md bg-gray-100 dark:bg-white font-semibold font-gasoek shrink-0 bounce-animation" style="animation-delay: 0.4s;">3</div>
             <div>
               <p class="font-bold dark:text-white">Book</p>
               <p class="text-sm text-gray-500 dark:text-gray-400">Book talent directly through a secure, streamlined platform</p>
             </div>
           </div>
 
-          <div class="flex gap-4">
-            <div class="w-8 h-8 flex items-center justify-center rounded-md bg-gray-100 dark:bg-gray-700 font-semibold font-gasoek flex-shrink-0">4</div>
+          <div class="flex gap-4 hover:translate-x-2 transition-transform duration-300">
+            <div class="w-8 h-8 flex items-center justify-center rounded-md bg-gray-100 dark:bg-white font-semibold font-gasoek shrink-0 bounce-animation" style="animation-delay: 0.6s;">4</div>
             <div>
               <p class="font-bold dark:text-white">Transparency</p>
               <p class="text-sm text-gray-500 dark:text-gray-400">Access transparent pricing and clear project timelines</p>
             </div>
           </div>
 
-          <div class="flex gap-4">
-            <div class="w-8 h-8 flex items-center justify-center rounded-md bg-gray-100 dark:bg-gray-700 font-semibold font-gasoek flex-shrink-0">5</div>
+          <div class="flex gap-4 hover:translate-x-2 transition-transform duration-300">
+            <div class="w-8 h-8 flex items-center justify-center rounded-md bg-gray-100 dark:bg-white font-semibold font-gasoek shrink-0 bounce-animation" style="animation-delay: 0.8s;">5</div>
             <div>
               <p class="font-bold dark:text-white">Fair pricing</p>
               <p class="text-sm text-gray-500 dark:text-gray-400">Get quality work at fair, transparent rates</p>
@@ -575,21 +704,25 @@
 
   <!-- Launchpad Section -->
   <div class="w-full md:flex">
-    <!-- Image side -->
-    <div class="h-72 md:h-auto md:w-1/2 bg-[url(image2.png)] bg-cover bg-center animate-fade-in"></div>
+    <div class="h-72 md:h-auto md:w-1/2 bg-[url(image2.png)] bg-cover bg-center animate-fade-in flex-2"></div>
 
-    <!-- Content side -->
-    <section class="md:w-1/2 bg-[#8f4cff] px-6 py-16 md:py-20 flex items-center">
+    <section class="md:w-1/2 bg-[#8f4cff] px-6 py-16 md:py-20 flex items-center flex-1">
       <div class="max-w-lg mx-auto animate-fade-in-up">
         <h2 class="text-white font-extrabold text-2xl md:text-3xl leading-tight mb-4">
           MyArteLab is your<br/>launchpad
         </h2>
 
         <p class="text-white/80 text-sm md:text-base leading-relaxed mb-8">
-          Whether you're a creator ready to share your work with the world or a client looking for exceptional African talent, we are your go-to. Be part of a platform that's reshaping how creative work is valued, discovered, and celebrated across Africa.
+          Whether you're a creator ready to share <br>
+          your work with the world or a client <br>
+          looking for exceptional African talent, we <br>
+          are your go-to. Be part of a platform <br>
+          that's reshaping how creative work is <br>
+           valued, discovered, and celebrated <br>
+            across Africa.
         </p>
 
-        <button class="bg-white text-[#8f4cff] font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition transform hover:scale-105">
+        <button class="bg-white text-[#8f4cff] font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl active:scale-95">
           Get started
         </button>
       </div>
@@ -597,20 +730,18 @@
   </div>
 
   <!-- Footer -->
-  <footer class="py-6 bg-white dark:bg-gray-900 transition-colors duration-300">
+  <footer class="py-6 bg-white dark:bg-[#0D0D0D] transition-colors duration-300">
     <p class="text-center text-sm text-black dark:text-white font-bold">
       © 2025 MyArteLab. All rights reserved.
     </p>
   </footer>
 
   <script>
-    // Toggle mobile menu
     function toggleMenu() {
       const menu = document.getElementById('mobileMenu');
       menu.classList.toggle('hidden');
     }
 
-    // Toggle dark mode
     function toggleTheme() {
       const html = document.documentElement;
       const themeText = document.getElementById('themeText');
@@ -629,13 +760,11 @@
       }
     }
 
-    // Check for saved theme preference or default to light mode
     if (localStorage.getItem('theme') === 'dark') {
       document.documentElement.classList.add('dark');
       document.getElementById('themeText').textContent = 'Dark mode';
     }
 
-    // Intersection Observer for scroll animations
     const observerOptions = {
       threshold: 0.1,
       rootMargin: '0px 0px -50px 0px'
@@ -650,27 +779,23 @@
       });
     }, observerOptions);
 
-    // Observe all animated elements
     document.addEventListener('DOMContentLoaded', () => {
       const animatedElements = document.querySelectorAll('.animate-fade-in-up, .animate-fade-in');
       animatedElements.forEach(el => observer.observe(el));
     });
 
-    // Function to set image based on theme
-function setThemeImage() {
-  const theme = localStorage.getItem('theme'); // 'light' or 'dark'
-  const img = document.getElementById('arrowImage');
+    function setThemeImage() {
+      const theme = localStorage.getItem('theme');
+      const img = document.getElementById('arrowImage');
 
-  if (theme === 'dark') {
-    img.src = 'arr.png'; // replace with your dark mode image
-  } else {
-    img.src = 'arrow.png'; // replace with your light mode image
-  }
-}
+      if (theme === 'dark') {
+        img.src = 'arr.png';
+      } else {
+        img.src = 'arrow.png';
+      }
+    }
 
-// Call the function on page load
-window.addEventListener('DOMContentLoaded', setThemeImage);
-
+    window.addEventListener('DOMContentLoaded', setThemeImage);
   </script>
 </body>
 </html>
