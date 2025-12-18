@@ -56,33 +56,130 @@
     @keyframes slideInLeft {
       from {
         opacity: 0;
-        transform: translateX(-100px);
+        transform: translateX(-60px);
+        filter: blur(10px);
       }
       to {
         opacity: 1;
         transform: translateX(0);
+        filter: blur(0);
       }
     }
-    
+
     @keyframes slideInRight {
       from {
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(60px);
+        filter: blur(10px);
       }
       to {
         opacity: 1;
         transform: translateX(0);
+        filter: blur(0);
       }
     }
-    
+
     @keyframes slideInBottom {
       from {
         opacity: 0;
-        transform: translateY(100px);
+        transform: translateY(60px);
+        filter: blur(8px);
       }
       to {
         opacity: 1;
         transform: translateY(0);
+        filter: blur(0);
+      }
+    }
+
+    @keyframes slideInTop {
+      from {
+        opacity: 0;
+        transform: translateY(-60px);
+        filter: blur(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+    }
+
+    @keyframes slideInBottomLeft {
+      from {
+        opacity: 0;
+        transform: translate(-50px, 50px);
+        filter: blur(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translate(0, 0);
+        filter: blur(0);
+      }
+    }
+
+    @keyframes slideInBottomRight {
+      from {
+        opacity: 0;
+        transform: translate(50px, 50px);
+        filter: blur(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translate(0, 0);
+        filter: blur(0);
+      }
+    }
+
+    @keyframes slideInTopLeft {
+      from {
+        opacity: 0;
+        transform: translate(-50px, -50px);
+        filter: blur(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translate(0, 0);
+        filter: blur(0);
+      }
+    }
+
+    @keyframes slideInTopRight {
+      from {
+        opacity: 0;
+        transform: translate(50px, -50px);
+        filter: blur(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translate(0, 0);
+        filter: blur(0);
+      }
+    }
+
+    @keyframes zoomIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+        filter: blur(10px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+      }
+    }
+
+    @keyframes flipIn {
+      from {
+        opacity: 0;
+        transform: perspective(1000px) rotateX(20deg);
+        filter: blur(5px);
+      }
+      to {
+        opacity: 1;
+        transform: perspective(1000px) rotateX(0);
+        filter: blur(0);
       }
     }
     
@@ -154,19 +251,47 @@
     }
     
     .animate-slide-in-left {
-      animation: slideInLeft 0.8s ease-out forwards;
+      animation: slideInLeft 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
-    
+
     .animate-slide-in-right {
-      animation: slideInRight 0.8s ease-out forwards;
+      animation: slideInRight 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
-    
+
     .animate-slide-in-bottom {
-      animation: slideInBottom 0.8s ease-out forwards;
+      animation: slideInBottom 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
-    
+
+    .animate-slide-in-top {
+      animation: slideInTop 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .animate-slide-in-bottom-left {
+      animation: slideInBottomLeft 1.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .animate-slide-in-bottom-right {
+      animation: slideInBottomRight 1.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .animate-slide-in-top-left {
+      animation: slideInTopLeft 1.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .animate-slide-in-top-right {
+      animation: slideInTopRight 1.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .animate-zoom-in {
+      animation: zoomIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .animate-flip-in {
+      animation: flipIn 1.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
     .animate-fade-in {
-      animation: fadeIn 1s ease-out forwards;
+      animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
     
     /* Elements start invisible for scroll animations */
@@ -265,17 +390,17 @@
 <body class="font-inter dark:bg-[#0D0D0D] transition-colors duration-300">
   <!-- Navigation -->
   <nav class="flex items-center justify-between px-6 py-4 bg-white dark:bg-[#0D0D0D] transition-colors duration-300 sticky top-0 z-50 shadow-sm">
-    <div class="flex items-center gap-3 animate-fade-in" id="home">
-      <a href="#home" class="flex items-center gap-3 animate-fade-in">
+    <div class="flex items-center gap-3 animate-fade-in">
+      <a href="#home" onclick="scrollToSection('home'); return false;" class="flex items-center gap-3 animate-fade-in">
         <img src="/images/logo 1.svg" alt="Artlabs Logo" class="h-8"/>
       </a>
     </div>
 
     <ul class="hidden md:flex items-center space-x-10 text-sm font-bold text-gray-900 dark:text-gray-100">
-      <li><a href="#home" class="cursor-pointer hover:text-purple-600 dark:hover:text-purple-400 transition">Home</a></li>
-      <li><a href="#about" class="cursor-pointer hover:text-purple-600 dark:hover:text-purple-400 transition">About us</a></li>
-      <li><a href="#services" class="cursor-pointer hover:text-purple-600 dark:hover:text-purple-400 transition">Services</a></li>
-      <li><a href="#how-it-works" class="cursor-pointer hover:text-purple-600 dark:hover:text-purple-400 transition">How it works</a></li>
+      <li><a href="#home" onclick="scrollToSection('home'); return false;" class="cursor-pointer hover:text-purple-600 dark:hover:text-purple-400 transition">Home</a></li>
+      <li><a href="#about" onclick="scrollToSection('about'); return false;" class="cursor-pointer hover:text-purple-600 dark:hover:text-purple-400 transition">About us</a></li>
+      <li><a href="#services" onclick="scrollToSection('services'); return false;" class="cursor-pointer hover:text-purple-600 dark:hover:text-purple-400 transition">Services</a></li>
+      <li><a href="#how-it-works" onclick="scrollToSection('how-it-works'); return false;" class="cursor-pointer hover:text-purple-600 dark:hover:text-purple-400 transition">How it works</a></li>
     </ul>
 
     <div class="flex items-center gap-6">
@@ -298,13 +423,15 @@
     </div>
   </nav>
 
+  <div id="home" style="position: absolute; top: 0;"></div>
+
   <!-- Mobile Menu -->
   <div id="mobileMenu" class="hidden absolute right-6 top-20 bg-white dark:bg-gray-800 border dark:border-gray-700 rounded-lg shadow-lg w-48 z-50 transition-all duration-300">
     <div class="py-2">
-      <a href="#home" onclick="toggleMenu()" class="block px-4 py-3 font-bold text-black dark:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition">Home</a>
-      <a href="#about" onclick="toggleMenu()" class="block px-4 py-3 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 transition">About us</a>
-      <a href="#services" onclick="toggleMenu()" class="block px-4 py-3 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 transition">Services</a>
-      <a href="#how-it-works" onclick="toggleMenu()" class="block px-4 py-3 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 border-b dark:border-gray-700 transition">How it works</a>
+      <a href="#home" onclick="scrollToSection('home'); toggleMenu(); return false;" class="block px-4 py-3 font-bold text-black dark:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition">Home</a>
+      <a href="#about" onclick="scrollToSection('about'); toggleMenu(); return false;" class="block px-4 py-3 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 transition">About us</a>
+      <a href="#services" onclick="scrollToSection('services'); toggleMenu(); return false;" class="block px-4 py-3 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 transition">Services</a>
+      <a href="#how-it-works" onclick="scrollToSection('how-it-works'); toggleMenu(); return false;" class="block px-4 py-3 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 border-b dark:border-gray-700 transition">How it works</a>
       <div class="px-4 py-4">
         <button class="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition font-semibold">
           Explore
@@ -314,7 +441,7 @@
   </div>
 
   <!-- Hero Section -->
-  <main id="home" class="px-12 py-12 space-y-6 md:flex md:justify-between md:items-center dark:bg-[#0D0D0D] lg:px-24 scroll-animate"> 
+  <main class="px-12 py-12 space-y-6 md:flex md:justify-between md:items-center dark:bg-[#0D0D0D] lg:px-24 scroll-animate"> 
     <div class="space-y-4">
       <h1 class="font-gasoek font-bold text-4xl md:text-5xl dark:text-white">MyArteLab</h1>
       <p class="font-bold dark:text-gray-300">Built for African Creators.</p>
@@ -344,11 +471,11 @@
   </main>
 
   <!-- Hero Image -->
-  <div class="w-screen bg-[url(/images/image1.png)] bg-cover bg-center h-72 md:h-[500px] lg:hidden scroll-animate"></div>
-  <div class="w-screen h-[130vh] bg-[url('/images/desktop.jpeg')] bg-cover bg-center hidden lg:block scroll-animate"></div>
+  <div class="w-screen bg-[url(/images/image1.png)] bg-cover bg-center h-72 md:h-[500px] lg:hidden animate-zoom-in"></div>
+  <div class="w-screen h-[130vh] bg-[url('/images/desktop.jpeg')] bg-cover bg-center hidden lg:block animate-zoom-in"></div>
 
   <!-- Feature Cards - Mobile -->
- <div id="services" class="relative flex mt-10 mb-10 px-4 max-w-3xl mx-auto md:hidden dark:bg-[#0D0D0D] scroll-animate">
+ <div id="services-mobile" class="relative flex mt-10 mb-10 px-4 max-w-3xl mx-auto md:hidden dark:bg-[#0D0D0D]">
     <div class="flex-1 h-96 bg-[#F4F4F4] dark:bg-white rounded-l-2xl transition-colors duration-300"></div>
     <div class="flex-1 h-96 bg-black dark:bg-black rounded-r-2xl transition-colors duration-300"></div>
 
@@ -425,7 +552,7 @@
   </article>
 
   <!-- Desktop Three Column Section -->
-  <div id="about" class="hidden md:flex min-h-screen bg-white dark:bg-[#0D0D0D] text-black dark:text-white p-8 lg:p-16 items-center justify-center transition-colors duration-300 scroll-animate">
+  <div id="services" class="hidden md:flex min-h-screen bg-white dark:bg-[#0D0D0D] text-black dark:text-white p-8 lg:p-16 items-center justify-center transition-colors duration-300 scroll-animate">
     <div class="max-w-7xl w-full grid md:grid-cols-3 gap-8 items-center">
       
       <div class="flex justify-center scroll-animate">
@@ -565,7 +692,7 @@
   </div>
 
   <!-- Why Section - Mobile -->
-  <main class="bg-[#9747FF] w-full py-12 px-6 flex flex-col items-center space-y-6 md:hidden scroll-animate">
+  <main id="about-mobile" class="bg-[#9747FF] w-full py-12 px-6 flex flex-col items-center space-y-6 md:hidden scroll-animate">
     <h1 class="font-gasoek text-2xl text-white text-center">
       Why Africa. Why now. Why MyArteLab?
     </h1>
@@ -608,7 +735,7 @@
   </main>
 
   <!-- Why Section - Desktop -->
-  <main class="hidden md:block bg-[#9747FF] w-full py-12 px-8 scroll-animate">
+  <main id="about" class="hidden md:block bg-[#9747FF] w-full py-12 px-8 scroll-animate">
     <div class="max-w-full mx-auto px-4">
       <h1 class="text-3xl lg:text-4xl font-bold text-white mb-8">
         Why Africa. Why now.<br/>Why MyArteLab?
@@ -803,12 +930,12 @@
       if (html.classList.contains('dark')) {
         html.classList.remove('dark');
         themeText.textContent = 'Light mode';
-         arrowImage.src = '/images/Arrow.png';
+         if (arrowImage) arrowImage.src = '/images/Arrow.png';
         localStorage.setItem('theme', 'light');
       } else {
         html.classList.add('dark');
         themeText.textContent = 'Dark mode';
-         arrowImage.src = '/images/arr.png';
+         if (arrowImage) arrowImage.src = '/images/arr.png';
         localStorage.setItem('theme', 'dark');
       }
     }
@@ -823,21 +950,29 @@
       rootMargin: '0px 0px -100px 0px'
     };
 
+    const animations = [
+      'animate-slide-in-left',
+      'animate-slide-in-right',
+      'animate-slide-in-top',
+      'animate-slide-in-bottom',
+      'animate-slide-in-top-left',
+      'animate-slide-in-top-right',
+      'animate-slide-in-bottom-left',
+      'animate-slide-in-bottom-right',
+      'animate-zoom-in',
+      'animate-flip-in'
+    ];
+
+    let animationIndex = 0;
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          // Determine animation direction based on element position
-          const rect = entry.target.getBoundingClientRect();
-          const isLeft = rect.left < window.innerWidth / 2;
-          
-          // Add appropriate animation class
           if (entry.target.classList.contains('scroll-animate')) {
-            if (isLeft) {
-              entry.target.classList.add('animate-slide-in-left');
-            } else {
-              entry.target.classList.add('animate-slide-in-right');
-            }
+            const animationClass = animations[animationIndex % animations.length];
+            entry.target.classList.add(animationClass);
             entry.target.classList.remove('scroll-animate');
+            animationIndex++;
           }
         }
       });
@@ -852,14 +987,59 @@
       const theme = localStorage.getItem('theme');
       const img = document.getElementById('arrowImage');
 
-      if (theme === 'dark') {
-        img.src = '/images/arr.png';
-      } else {
-        img.src = '/images/arrow.png';
+      if (img) {
+        if (theme === 'dark') {
+          img.src = '/images/arr.png';
+        } else {
+          img.src = '/images/Arrow.png';
+        }
       }
     }
 
     window.addEventListener('DOMContentLoaded', setThemeImage);
+
+    function scrollToSection(sectionId) {
+      if (sectionId === 'home') {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+        return;
+      }
+
+      let element = document.getElementById(sectionId);
+
+      if (window.innerWidth < 768) {
+        if (sectionId === 'services') {
+          element = document.getElementById('services-mobile');
+        } else if (sectionId === 'about') {
+          element = document.getElementById('about-mobile');
+        }
+      }
+
+      if (element) {
+        const navHeight = 80;
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - navHeight;
+
+        setTimeout(() => {
+          if (element) {
+            const animatedElements = element.querySelectorAll('.scroll-animate');
+            animatedElements.forEach(el => {
+              if (el.classList.contains('scroll-animate')) {
+                el.classList.remove('scroll-animate');
+                el.style.opacity = '1';
+              }
+            });
+          }
+        }, 100);
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
   </script>
 </body>
 </html>
