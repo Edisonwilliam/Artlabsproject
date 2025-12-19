@@ -922,26 +922,27 @@
       menu.classList.toggle('hidden');
     }
 
-    function toggleTheme() {
-      const html = document.documentElement;
-      const themeText = document.getElementById('themeText');
-      const arrowImage = document.getElementById('arrowImage');
-      const menuicon = document.getElementById('menu-icon');
-      
-      if (html.classList.contains('dark')) {
-        html.classList.remove('dark');
-        themeText.textContent = 'Light mode';
-         if (arrowImage) arrowImage.src = '/images/Arrow.png';
-        localStorage.setItem('theme', 'light');
-      } else {
-        html.classList.add('dark');
-        themeText.textContent = 'Dark mode';
-         if (arrowImage) arrowImage.src = '/images/arr.png';
-        localStorage.setItem('theme', 'dark');
-        if (menuicon) menuicon.src = '/images/whitemenu.png';
-         localStorage.setItem('theme', 'dark');
-      }
-    }
+   function toggleTheme() {
+  const html = document.documentElement;
+  const themeText = document.getElementById('themeText');
+  const arrowImage = document.getElementById('arrowImage');
+  const menuicon = document.getElementById('menu-icon');
+  
+  if (html.classList.contains('dark')) {
+    html.classList.remove('dark');
+    themeText.textContent = 'Light mode';
+    if (arrowImage) arrowImage.src = '/images/Arrow.png';
+    if (menuicon) menuicon.src = '/images/ep_menu.svg';
+    localStorage.setItem('theme', 'light');
+  } else {
+    html.classList.add('dark');
+    themeText.textContent = 'Dark mode';
+    if (arrowImage) arrowImage.src = '/images/arr.png';
+    if (menuicon) menuicon.src = '/images/whitemenu.png';
+    localStorage.setItem('theme', 'dark');
+  }
+}
+
 
     if (localStorage.getItem('theme') === 'dark') {
       document.documentElement.classList.add('dark');
