@@ -414,7 +414,7 @@
       </div>
 
       <button onclick="toggleMenu()">
-        <img src="/images/ep_menu.svg" alt="Menu" class="md:hidden cursor-pointer w-6 h-6" />
+        <img src="/images/ep_menu.svg" alt="Menu" class="md:hidden cursor-pointer w-6 h-6" id="menu-icon"/>
       </button>
 
       <button class="hidden md:block px-6 py-2 bg-purple-600 rounded-lg text-white hover:bg-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl active:scale-95 shimmer-effect relative overflow-hidden">
@@ -926,6 +926,7 @@
       const html = document.documentElement;
       const themeText = document.getElementById('themeText');
       const arrowImage = document.getElementById('arrowImage');
+      const menuicon = document.getElementById('menu-icon');
       
       if (html.classList.contains('dark')) {
         html.classList.remove('dark');
@@ -937,6 +938,8 @@
         themeText.textContent = 'Dark mode';
          if (arrowImage) arrowImage.src = '/images/arr.png';
         localStorage.setItem('theme', 'dark');
+        if (menuicon) menuicon.src = '/images/whitemenu.png';
+         localStorage.setItem('theme', 'dark');
       }
     }
 
@@ -995,6 +998,20 @@
         }
       }
     }
+
+     function setThemeImages() {
+      const theme = localStorage.getItem('theme');
+      const img = document.getElementById('menu-icon');
+
+      if (img) {
+        if (theme === 'dark') {
+          img.src = '/images/whitemenu.png';
+        } else {
+          img.src = '/images/ep_menu.svg';
+        }
+      }
+    }
+
 
     window.addEventListener('DOMContentLoaded', setThemeImage);
 
